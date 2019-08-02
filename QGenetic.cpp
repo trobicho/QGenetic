@@ -19,8 +19,8 @@ void QGenetic::slot_genFinish(int gen, std::vector<double> &best)
     {
         m_bestGeneCopy[i]=best[i];
     }
-    /*
     std::cout << "receive Finish gen: ";
+    /*
     Fitness *copy=m_qfitness.create_newFitnessObject();
     std::cout << copy->evaluate(m_bestGeneCopy, m_generation) << std::endl;
     delete copy;

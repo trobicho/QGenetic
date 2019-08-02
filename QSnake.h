@@ -15,7 +15,7 @@ class QSnake: public Snake_genRand, public QFitness
         Fitness* get_fitnessObject(void){return m_fitnessObj;}
         int get_nbGene(){return Snake_genRand::get_nbGene();}
         void geneCopy(std::vector<double> &gene){fillNet(gene); m_receiveCopy=true;}
-        void geneCopy(std::vector<double> &gene, int gen){if(m_activFoodGen>=0 && gen>=m_activFoodGen){set_food(false);} geneCopy(gene);}
+        void geneCopy(std::vector<double> &gene, int gen){if(m_activFoodGen>=0 && gen>=m_activFoodGen){set_food(true);} geneCopy(gene);}
 
     public slots:
         void timeOutSlot();
@@ -23,7 +23,7 @@ class QSnake: public Snake_genRand, public QFitness
     protected:
         void paintSnake();
         Snake_genRand *m_fitnessObj=NULL;
-        bool m_dbg=false;
+        bool m_debug=true;
         int m_pixSize=5;
         bool m_bStep=false;
 

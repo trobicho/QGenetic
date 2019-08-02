@@ -1,7 +1,7 @@
 #include "QSnake.h"
 #include <iostream>
 
-QSnake::QSnake(QWidget *parent, s_vec2i max): Snake_genRand(max), QFitness(100, parent, "teste")
+QSnake::QSnake(QWidget *parent, s_vec2i max): Snake_genRand(max), QFitness(40, parent, "teste")
 {
     m_max=max;
     grabKeyboard();
@@ -42,6 +42,31 @@ void QSnake::paintSnake()
         glVertex2i(m_apple.x, m_apple.y);
     }
     glEnd();
+	if (m_debug)
+	{
+		glBegin(GL_LINE_STRIP);
+        glColor3ub(0x10, 0x20, 0xF0);
+		int	dx, dy;
+		for (int i = 0; i < m_nbOutPerDir * 2; i++)
+		{
+			if (m_sensor[m_nbOutPerDir + i] > 0)
+			{
+				int dir=((!m_snake.dir?3:m_snake.dir-1)+(i % m_nbOutPerDir))%4;
+				dx = 0;
+				dy = 0;
+				if (dir % 2 == 0)
+					dx = dir-1;
+				else
+					dy = dir-2;
+				glColor3ub(0x10, 0x20, 0xF0);
+				if (i >= m_nbOutPerDir)
+					glColor3ub(0xF0, 0x20, 0x10);
+				glVertex2i(m_snake.head.x, m_snake.head.y);
+				glVertex2i(m_snake.head.x + dx * m_sensor[m_nbOutPerDir + i], m_snake.head.y + dy * m_sensor[m_nbOutPerDir + i]);
+			}
+		}
+		glEnd();
+	}
 }
 
 void QSnake::keyPressEvent(QKeyEvent *keyEvent)
@@ -65,7 +90,7 @@ void QSnake::keyPressEvent(QKeyEvent *keyEvent)
             {
                 step();
                 sensorDbg();
-                std::cout << std::endl;
+				std::cout << std::endl;
             }
             else
                 m_dead=true;
@@ -94,6 +119,7 @@ void QSnake::timeOutSlot()
     {
         if(!m_bStep)
         {
+            step();
             step();
             step();
         }
