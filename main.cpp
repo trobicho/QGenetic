@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     srand(time(NULL));
     s_vec2i max={50, 50};
     QSnake snake(&win);
-    QGenetic genetic(&win, snake, 150);
+    QGenetic genetic(&win, snake, 500);
 
     win.addSubWin(&snake);
     win.show();

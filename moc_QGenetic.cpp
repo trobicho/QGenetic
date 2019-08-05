@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'QGenetic.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.13.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "QGenetic.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'QGenetic.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.7. It"
+#error "This file was generated using the moc from 5.13.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -48,7 +49,7 @@ QT_MOC_LITERAL(6, 55, 18) // "slot_displayFinish"
 static const uint qt_meta_data_QGenetic[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        2,   14, // methods
@@ -72,7 +73,7 @@ static const uint qt_meta_data_QGenetic[] = {
 void QGenetic::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        QGenetic *_t = static_cast<QGenetic *>(_o);
+        auto *_t = static_cast<QGenetic *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slot_genFinish((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< std::vector<double>(*)>(_a[2]))); break;
@@ -82,10 +83,14 @@ void QGenetic::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     }
 }
 
-const QMetaObject QGenetic::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_QGenetic.data,
-      qt_meta_data_QGenetic,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject QGenetic::staticMetaObject = { {
+    &QWidget::staticMetaObject,
+    qt_meta_stringdata_QGenetic.data,
+    qt_meta_data_QGenetic,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *QGenetic::metaObject() const

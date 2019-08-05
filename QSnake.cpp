@@ -44,13 +44,13 @@ void QSnake::paintSnake()
     glEnd();
 	if (m_debug)
 	{
-		glBegin(GL_LINE_STRIP);
-        glColor3ub(0x10, 0x20, 0xF0);
 		int	dx, dy;
 		for (int i = 0; i < m_nbOutPerDir * 2; i++)
 		{
 			if (m_sensor[m_nbOutPerDir + i] > 0)
 			{
+				glBegin(GL_LINE_STRIP);
+				glColor3ub(0x10, 0x20, 0xF0);
 				int dir=((!m_snake.dir?3:m_snake.dir-1)+(i % m_nbOutPerDir))%4;
 				dx = 0;
 				dy = 0;
@@ -61,11 +61,15 @@ void QSnake::paintSnake()
 				glColor3ub(0x10, 0x20, 0xF0);
 				if (i >= m_nbOutPerDir)
 					glColor3ub(0xF0, 0x20, 0x10);
+				if (i == 1)
+					glColor3ub(0x20, 0xF0, 0x10);
+				if (i == 0)
+					glColor3ub(0x20, 0xF0, 0xB0);
 				glVertex2i(m_snake.head.x, m_snake.head.y);
 				glVertex2i(m_snake.head.x + dx * m_sensor[m_nbOutPerDir + i], m_snake.head.y + dy * m_sensor[m_nbOutPerDir + i]);
+				glEnd();
 			}
 		}
-		glEnd();
 	}
 }
 

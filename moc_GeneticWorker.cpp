@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GeneticWorker.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.13.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "GeneticWorker.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'GeneticWorker.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.7. It"
+#error "This file was generated using the moc from 5.13.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -47,7 +48,7 @@ QT_MOC_LITERAL(5, 57, 4) // "best"
 static const uint qt_meta_data_GeneticWorker[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -69,7 +70,7 @@ static const uint qt_meta_data_GeneticWorker[] = {
 void GeneticWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        GeneticWorker *_t = static_cast<GeneticWorker *>(_o);
+        auto *_t = static_cast<GeneticWorker *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->signal_genFinish((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< std::vector<double>(*)>(_a[2]))); break;
@@ -78,7 +79,7 @@ void GeneticWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (GeneticWorker::*_t)(int , std::vector<double> & );
+            using _t = void (GeneticWorker::*)(int , std::vector<double> & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GeneticWorker::signal_genFinish)) {
                 *result = 0;
                 return;
@@ -87,10 +88,14 @@ void GeneticWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     }
 }
 
-const QMetaObject GeneticWorker::staticMetaObject = {
-    { &QThread::staticMetaObject, qt_meta_stringdata_GeneticWorker.data,
-      qt_meta_data_GeneticWorker,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject GeneticWorker::staticMetaObject = { {
+    &QThread::staticMetaObject,
+    qt_meta_stringdata_GeneticWorker.data,
+    qt_meta_data_GeneticWorker,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *GeneticWorker::metaObject() const
@@ -128,7 +133,7 @@ int GeneticWorker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void GeneticWorker::signal_genFinish(int _t1, std::vector<double> & _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

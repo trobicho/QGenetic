@@ -16,10 +16,12 @@ HEADERS+=../genetic/fitnessFunc/Snake_genRand.h
 HEADERS+=WinGL.h
 HEADERS+=QFitness.h
 
-LIBS+= -lglut -lGLU
-LIBS+=-L ~/lib -lgenetic -lneuralNet
-QMAKE_CXXFLAGS+=-Wall -Wextra
+LIBS+=-framework GLUT
+LIBS+=-L../genetic -lgenetic -L../neuralNet -lneuralNet
 QT+=opengl
 CONFIG+=qt
 CONFIG+=no_lflags_merge
 CONFIG+=debug
+QMAKE_LFLAGS += -stdlib=libc++
+QMAKE_CXXFLAGS += -stdlib=libc++ -std=c++11
+CXXFLAGS+=-std=c++11
